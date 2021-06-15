@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Working directory to extract the zips into
+WORK="./work"
+
+if [[ ! -d $WORK ]]
+then
+	mkdir -p $WORK	
+fi
+
+SRC=`pwd`
+cd $WORK
+cp $SRC/*.zip .
+
+ZIPS=`ls -d *.zip`
+
+for FILE in $ZIPS
+do
+	NAME=$(echo $FILE | cut -f 1 -d ".")
+	mkdir -p $NAME
+	cd $NAME
+	unzip ../$FILE
+	cd ..
+done
+
+LIST=`ls -d */`
+
+for DIR in $LIST
+do
+	cd $DIR
+	unzip *zip
+	hjson-cli -c output.hjson >output.json
+	PWD=`pwd`
+	TITLE=`basename $PWD`
+	Rscript $SRC/iGenDec_JSON_Output.R $TITLE
+	cd ..
+done
