@@ -13,9 +13,9 @@ This tool uses hjson-cli to conferm hjson to json files.  I use the go lang vers
 
 This tool needs the following packages installed in your R implementation using install.packages():
 
-   library(jsonlite)
-   library(dplyr)
-   library(ggplot2)
-   library(ggrepel)
-   library(forcats)
-   library(scales)
+   * library(jsonlite)
+   * library(dplyr)
+   * library(ggplot2)
+   * library(ggrepel)
+   * library(forcats)
+   * library(scales)
