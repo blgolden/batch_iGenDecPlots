@@ -28,7 +28,6 @@ LIST=`ls -d */`
 for DIR in $LIST
 do
 	cd $DIR
-	unzip *zip
 	hjson-cli -c output.hjson >output.json
 	PWD=`pwd`
 	TITLE=`basename $PWD`
