@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+
+# Draw a bar plot from the emphasis values of iGenDec
+
 library(jsonlite)
 library(dplyr)
 library(ggplot2)
@@ -28,7 +32,7 @@ plotTitle = paste(Title, ".jpg", sep="")
 
 jpeg(file = plotTitle)
 
-df$emphasis <- df$emphasis * 100
+df$emphasis <- round(df$emphasis * 100, digits=2)
 
 d <- df[order(df$emphasis),]
 
@@ -37,7 +41,10 @@ d$trait <- paste(d$trait, d$component, sep = "_")
 # create the bar plot
 bp <- ggplot(d, aes(x=trait, y=emphasis, fill=trait)) + 
 	geom_col(position="dodge", stat = "identity", show.legend=FALSE) +
-	ggtitle(Title)
+	ggtitle(Title) +
+	ylim(0, 100) +
+	theme(text = element_text(size=18)) +
+	geom_text(aes(label=emphasis), position=position_dodge(width=0.9))
 
 bp
 
