@@ -9,3 +9,13 @@ To use this tool, clone it to a directory of you choosing.  Then copy one or mor
 
 a directory called work will be made and each zip file will be unzipped into directories within work.  The makePlots will cd into each of those directories and draw a barplot for each runs' emphasis values.  The name of the bar plots will be the name of the zip file, in a work/[ZIPFILENAME_DIRECTORY]/[ZIPFILENAME].jpg.  Sounds complex but it is really easy.  Just run it and cd around.  You'll see...
 
+This tool uses hjson-cli to conferm hjson to json files.  I use the go lang version but any hjson-cli should work.
+
+This tool needs the following packages installed in your R implementation using install.packages():
+
+   library(jsonlite)
+   library(dplyr)
+   library(ggplot2)
+   library(ggrepel)
+   library(forcats)
+   library(scales)
