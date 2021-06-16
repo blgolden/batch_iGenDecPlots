@@ -1,5 +1,5 @@
 # batch_iGenDecPlots
-Tools to create a bar plot of emphasis values for a bastch of iGenDec results zip files
+Tools to create a bar plot of emphasis values for a batch of iGenDec results zip files
 
 the iGenDec web intergace in github.com/blgolden/igendec allows users to download results of a job as a zip file.  The downloaded zip file includes an hjson file called output.hjson that contains the marginal economic values for each trait in the index (MEV) and additional statistics about each MEV.  The tools in this repository allow will draw a bar-plot of emphasis values for each run for a batch of zip files.
 
